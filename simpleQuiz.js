@@ -16,15 +16,21 @@ function simpleQuiz() {
             correctAnswer: 2
         }
     ];
-    let answer = result = null;
-    quiz.forEach(element => {
+    let answer;
+    let score = 0;
+    for (const element of quiz) {
         answer = prompt(`Ответьте на вопрос: ${element.question}\n\n${element.options[0]}\n${element.options[1]}\n${element.options[2]}\n\nВведите номер правильного ответа.`);
+        if (answer === null) {
+            return;
+        }
         if (answer == element.correctAnswer) {
             alert(`Правильный ответ!`);
-            result++;
+            score++;
         } else {
-            alert(`Ответ неверный. Правильный ответ:\n${element.options[element.correctAnswer-1]}`);
+            if (answer === '' || isNaN(answer)) {
+                alert(`Введен некорректный ответ`);
+            } else {alert(`Ответ неверный. Правильный ответ:\n${element.options[element.correctAnswer - 1]}`);}
         }
-    });
-    alert(`Вы ответили правильно на ${result} из ${quiz.length} вопросов`);
+    }
+    alert(`Вы ответили правильно на ${score} из ${quiz.length} вопросов`);
 }
