@@ -79,7 +79,7 @@ console.log(negativeArr(arr13));
 // Task 14.
 let arr14 = [];
 for (let i = 0; i < 10; i++) {
-    arr14.push(Math.floor(Math.random() * 10));
+    arr14.push(Math.ceil(Math.random() * 10));
 }
 console.log(arr14);
 console.log(arr14.filter(element => element % 2 == 0));
