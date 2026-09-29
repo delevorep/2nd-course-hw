@@ -13,7 +13,7 @@ function simpleMath() {
             case 2:
                 message = '-';
                 let buf = number2;
-                if (number1 < number2) {number2 = number1; number1 = buf;};
+                if (number1 < number2) { number2 = number1; number1 = buf; };
                 answer = number1 - number2;
                 break;
             case 3:
@@ -32,13 +32,12 @@ function simpleMath() {
                 break;
         }
         guess = prompt(`Сколько будет ${number1} ${message} ${number2} ?`);
+        while (guess === '' || isNaN(guess)) {
+            guess = prompt(`Некорректный ввод. Необхдимо ввести число.\nСколько будет ${number1} ${message} ${number2} ?`);
+        }
         if (guess === null) {
             return;
         }
-        if (guess === '' || isNaN(guess)) {
-            alert(`Некорректный ввод. Необхдимо ввести число.`);
-        } else {
-            if (guess == answer) { alert(`Правильный ответ!`); } else {alert(`Ответ неверный`);}
-        }
+        if (guess == answer) { alert(`Правильный ответ!`); } else { alert(`Ответ неверный`); }
     } while (true);
 }
